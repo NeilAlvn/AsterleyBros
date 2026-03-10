@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai
 import pandas as pd
 import json
 from tavily import TavilyClient
@@ -100,5 +100,6 @@ if st.button("🚀 Run One-Shot Bulk Research"):
                 st.rerun()
 
 st.download_button("📥 Download CSV", st.session_state.leads_df.to_csv(index=False).encode('utf-8'), "asterley_leads.csv")
+
 
 
