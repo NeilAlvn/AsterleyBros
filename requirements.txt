@@ -1,1 +1,5 @@
-
+streamlit
+google-generativeai
+pandas
+matplotlib
+tavily-python
