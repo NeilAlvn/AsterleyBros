@@ -192,10 +192,16 @@ with tab2:
         st.metric("Output Tokens", f"{st.session_state.total_output_tokens:,}")
     
     if (st.session_state.total_prompt_tokens + st.session_state.total_output_tokens) > 0:
-        fig, ax = plt.subplots(figsize=(8, 4))
-        # Updated chart to match the copper brand aesthetic
-        ax.pie([st.session_state.total_prompt_tokens, st.session_state.total_output_tokens], 
-               labels=['Input', 'Output'], autopct='%1.1f%%', colors=['#C8A97E','#444444'], textprops={'color':"grey"})
-        fig.patch.set_alpha(0)
-        ax.set_facecolor('none')
-        st.pyplot(fig)
+        # Use columns to create a smaller, centered space for the chart
+        spacer_left, chart_col, spacer_right = st.columns([1, 2, 1])
+        
+        with chart_col:
+            # Reduced figsize to (4, 4) to make it smaller and perfectly round
+            fig, ax = plt.subplots(figsize=(4, 4))
+            ax.pie([st.session_state.total_prompt_tokens, st.session_state.total_output_tokens], 
+                   labels=['Input', 'Output'], autopct='%1.1f%%', colors=['#C8A97E','#444444'], textprops={'color':"grey"})
+            fig.patch.set_alpha(0)
+            ax.set_facecolor('none')
+            # use_container_width=True now strictly follows the middle column's smaller width
+            st.pyplot(fig, use_container_width=True)
+
