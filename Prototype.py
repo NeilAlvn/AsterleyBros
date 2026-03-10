@@ -9,7 +9,7 @@ st.set_page_config(page_title="Asterley Bros Scout", page_icon="", layout="wide"
 
 # --- API Configurations ---
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-3-flash-preview')
+model = genai.GenerativeModel('gemini-2.5-flash')
 tavily_client = TavilyClient(api_key=st.secrets["TAVILY_API_KEY"])
 
 # --- System Prompt ---
@@ -151,4 +151,5 @@ with tab2:
     csv = st.session_state.leads_df.to_csv(index=False).encode('utf-8')
 
     st.download_button("📥 Download Lead Sheet", csv, "botanical_leads.csv", "text/csv")
+
 
