@@ -105,7 +105,7 @@ with st.sidebar:
 st.title("The Botanical Scout")
 st.markdown("### Powered by Tavily Deep Search + Gemini 3 Flash")
 
-tab1, tab2 = st.tabs(["Single Scout", "Mass Doing"])    
+tab1, tab2 = st.tabs(["Single Scout", "CRM"])    
 
 with tab1:
     with st.form("single_form"):
@@ -149,4 +149,5 @@ with tab2:
 
     st.divider()
     csv = st.session_state.leads_df.to_csv(index=False).encode('utf-8')
+
     st.download_button("📥 Download Lead Sheet", csv, "botanical_leads.csv", "text/csv")
