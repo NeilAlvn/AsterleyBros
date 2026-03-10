@@ -102,7 +102,7 @@ with st.sidebar:
         st.write("No usage data yet. Run a scout to see stats!")
 
 # --- UI: Main Content ---
-st.title("The Botanical Scout")
+st.title("Generate personalised outreach (emails/DMs")
 st.markdown("### Powered by Tavily Deep Search + Gemini 3 Flash")
 
 tab1, tab2 = st.tabs(["Single Scout", "CRM"])    
@@ -151,3 +151,4 @@ with tab2:
     csv = st.session_state.leads_df.to_csv(index=False).encode('utf-8')
 
     st.download_button("📥 Download Lead Sheet", csv, "botanical_leads.csv", "text/csv")
+
