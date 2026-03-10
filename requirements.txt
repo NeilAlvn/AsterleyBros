@@ -3,3 +3,5 @@ google-generativeai
 pandas
 matplotlib
 tavily-python
+google-genai
+
